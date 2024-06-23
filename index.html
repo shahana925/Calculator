@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electricity Bill Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+    .calculator {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 400px;
+      margin: auto;
+    }
+    .calculator input, .calculator button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .calculator button {
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    .calculator button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <h2>Electricity Bill Calculator</h2>
+    <label for="consumption">Enter your consumption in kWh:</label>
+    <input type="number" id="consumption" placeholder="e.g., 350">
+    <label for="rate">Enter rate per kWh:</label>
+    <input type="number" id="rate" placeholder="e.g., 0.12">
+    <button onclick="calculateBill()">Calculate Bill</button>
+    <p id="result"></p>
+  </div>
+  <script>
+    function calculateBill() {
+      const consumption = document.getElementById('consumption').value;
+      const rate = document.getElementById('rate').value;
+
+      if (consumption === '' || rate === '') {
+        alert('Please enter both consumption and rate');
+        return;
+      }
+
+      const totalCost = consumption * rate;
+      document.getElementById('result').textContent = 'Total Bill: RS' + totalCost.toFixed(2);
+    }
+  </script>
+</body>
+</html>
